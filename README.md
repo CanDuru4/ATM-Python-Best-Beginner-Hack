@@ -6,7 +6,7 @@
   </a>
 </p>
 
-# Credentials
+## Credentials
 To log in use 1234 as the password.
 
 ## Suggestions
