@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: atm-python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: atm-python-app
+  template:
+    metadata:
+      labels:
+        app: atm-python-app
+    spec:
+      containers:
+      - name: atm-python-app
+        image: canduru04/atm-python-app:latest # Replace with your image
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080 # Placeholder, as the script is interactive
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atm-python-service
+spec:
+  selector:
+    app: atm-python-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP 
