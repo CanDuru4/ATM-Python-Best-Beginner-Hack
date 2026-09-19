@@ -10,7 +10,7 @@ pipeline. Public repo. Stack: Python 3.14 (Docker image), Flask 3.1.3, Docker, G
 - `requirements.txt` - pinned deps for `app.py` only (`Flask==3.1.3`).
 - `Dockerfile` - `python:3.14-slim`, runs `python app.py` on port 8080.
 - `k8s-deployment.yaml`, `argocd-app.yaml` - Deployment + ClusterIP Service, Argo CD app (automated sync, prune, selfHeal).
-- `.github/workflows/docker-image.yml` - build on PR, build and push to Docker Hub on `main`; `.github/dependabot.yml` - weekly pip/docker/actions.
+- `.github/workflows/docker-image.yml` - build on PR, build and push to Docker Hub on `main`
 - `docs/assets/` - README images only. `README.md` is the full user guide (config table, CI/CD, deployment caveats).
 
 ## Commands
