@@ -52,12 +52,10 @@ values that live in memory (CLI) or in the browser session (web app).
 - Kubernetes `Deployment` + `Service` manifests and an Argo CD `Application`
 - GitHub Actions pipeline that builds on every pull request and publishes to
   Docker Hub from `main`
-- Dependabot watching pip, Docker and GitHub Actions dependencies
 
 ## Tech stack
 
-Python 3.14 · Flask 3.1.3 · Docker · Kubernetes · Argo CD · GitHub Actions ·
-Dependabot
+Python 3.14 · Flask 3.1.3 · Docker · Kubernetes · Argo CD · GitHub Actions
 
 ## Getting started
 
@@ -121,7 +119,6 @@ and pay the electric, gas or water bill.
 ├── argocd-app.yaml            # Argo CD Application, automated sync
 ├── docs/assets/               # README images
 └── .github/
-    ├── dependabot.yml         # weekly pip / docker / github-actions updates
     └── workflows/
         └── docker-image.yml   # build on PR, build and push on main
 ```
@@ -157,8 +154,7 @@ The pipeline lives in `.github/workflows/docker-image.yml`.
   so every build is also addressable by the commit that produced it.
 - **Actions are pinned to commit SHAs**, with the release tag in a trailing
   comment. A retagged upstream release cannot silently change what runs in CI.
-  Dependabot's `github-actions` ecosystem opens a pull request when a new
-  release appears, and rewrites both the SHA and the comment.
+  Bump the SHA and the comment together by hand when a new release appears.
 - **Least privilege.** The workflow declares `permissions: contents: read` at
   the top level, so the automatic `GITHUB_TOKEN` cannot write to the repository.
 
